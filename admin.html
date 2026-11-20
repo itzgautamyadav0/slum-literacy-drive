@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard & Attendance Portal | Slum Literacy Drive</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-admin">
+
+    <!-- Admin Top Navbar -->
+    <header class="admin-header">
+        <div class="container admin-nav-flex">
+            <div class="admin-brand">
+                <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <div>
+                    <h2>Slum Literacy <span>Coordinator Dashboard</span></h2>
+                    <span class="admin-sub">Teacher Applications • Student Attendance • Real Data Management</span>
+                </div>
+            </div>
+
+            <div class="admin-top-actions">
+                <a href="index.html" class="btn btn-secondary btn-sm">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+                <a href="enroll.html" class="btn btn-secondary btn-sm">
+                    <i class="fa-solid fa-child-reaching"></i> Admission Form
+                </a>
+                <a href="report.html" class="btn btn-secondary btn-sm">
+                    <i class="fa-solid fa-file-invoice"></i> Progress Report
+                </a>
+                <a href="volunteer.html" class="btn btn-warning btn-sm">
+                    <i class="fa-solid fa-user-plus"></i> Teacher Registration
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Admin Container -->
+    <main class="container admin-main">
+
+        <!-- Admin Master Switcher Tabs -->
+        <div class="admin-tab-nav">
+            <button class="admin-tab-btn active" id="tabBtnTeachers" onclick="switchAdminTab('teachers')">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Volunteer Teachers Database</span>
+                <span class="tab-badge" id="tabTeacherBadge">0</span>
+            </button>
+            <button class="admin-tab-btn" id="tabBtnAdmissions" onclick="switchAdminTab('admissions')">
+                <i class="fa-solid fa-child-reaching"></i>
+                <span>Student Admissions & Approvals</span>
+                <span class="tab-badge" id="tabAdmissionBadge" style="background:#f59e0b; color:white;">0</span>
+            </button>
+            <button class="admin-tab-btn" id="tabBtnAttendance" onclick="switchAdminTab('attendance')">
+                <i class="fa-solid fa-clipboard-user"></i>
+                <span>Daily Student Attendance & Participation Logger</span>
+                <span class="tab-badge" id="tabAttendanceBadge" style="background:#10b981; color:white;">Module 3</span>
+            </button>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 1: VOLUNTEER TEACHERS DATABASE -->
+        <!-- ================================================================= -->
+        <div id="paneTeachers" class="admin-tab-pane active">
+
+            <!-- Welcome Banner -->
+            <div class="admin-welcome-card">
+                <div class="welcome-text">
+                    <h1>Incoming Teacher Applications (Live Database)</h1>
+                    <p>Coordinator database strictly reserved for managing volunteer teaching shifts. There is no mock or sample data—only authentic candidate applications submitted via <strong>volunteer.html</strong> are displayed here in real time. You can export the entire database to Excel (CSV) with a single click!</p>
+                </div>
+                <div class="welcome-actions" style="display:flex; gap:10px; align-items:center;">
+                    <button id="exportCsvBtn" class="btn btn-warning btn-lg">
+                        <i class="fa-solid fa-file-excel"></i> Export to Excel (CSV)
+                    </button>
+                    <button id="clearAllDataBtn" class="btn btn-outline-sm" style="color:#ef4444; border-color:#fca5a5;" title="Clear all registrations">
+                        <i class="fa-solid fa-trash-can"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Stats Cards -->
+            <div class="admin-stats-grid">
+                <div class="admin-stat-card">
+                    <div class="stat-icon-wrap bg-blue"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                        <span class="stat-meta">Real Applications Received</span>
+                        <h3 id="statTotalCount">0</h3>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon-wrap bg-green"><i class="fa-solid fa-user-check"></i></div>
+                    <div>
+                        <span class="stat-meta">Active In Review</span>
+                        <h3 id="statActiveCount">0</h3>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon-wrap bg-amber"><i class="fa-solid fa-school"></i></div>
+                    <div>
+                        <span class="stat-meta">Teaching Centers</span>
+                        <h3>14 Centers</h3>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon-wrap bg-purple"><i class="fa-solid fa-book"></i></div>
+                    <div>
+                        <span class="stat-meta">Evening Shifts</span>
+                        <h3>4 PM – 7 PM</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Filter & Controls -->
+            <div class="admin-controls-card">
+                <div class="search-input-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="adminSearchInput" placeholder="Search by name, phone, email, subject, or center...">
+                </div>
+
+                <div class="filter-dropdown-wrap">
+                    <select id="adminSubjectFilter">
+                        <option value="">All Subjects</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="English">English</option>
+                        <option value="Science">Science</option>
+                        <option value="General Knowledge">General Knowledge</option>
+                        <option value="Arts and Crafts">Arts and Crafts</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Volunteer Data Table Card -->
+            <div class="admin-table-card">
+                <div class="table-card-header">
+                    <h3><i class="fa-solid fa-database"></i> Registered Candidates Database</h3>
+                    <span class="badge-pill light-blue" id="tableRecordCount">Loading...</span>
+                </div>
+
+                <div class="table-scroll-container">
+                    <table class="admin-data-table" id="adminDataTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Registration Date</th>
+                                <th>Teacher Name</th>
+                                <th>Contact Info</th>
+                                <th>Subject</th>
+                                <th>Assigned Center</th>
+                                <th>Available Days</th>
+                                <th>Shift Timing</th>
+                                <th>Address / Locality</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody">
+                            <!-- Populated dynamically via script.js (Real Data Only) -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 2: STUDENT ADMISSIONS & APPROVALS (UNDERPRIVILEGED CHILDREN) -->
+        <!-- ================================================================= -->
+        <div id="paneAdmissions" class="admin-tab-pane">
+
+            <!-- Welcome Banner -->
+            <div class="admin-welcome-card">
+                <div class="welcome-text">
+                    <h1>Underprivileged Student Admissions & Approvals</h1>
+                    <p>Review child admission applications submitted in real time by parents and guardians via <strong>enroll.html</strong>. Verify family details, background, and center location, then click <strong>Approve & Admit</strong> to officially assign a Student ID and automatically enroll the child into the Daily Attendance Logger and Student Progress Tracker.</p>
+                </div>
+                <div class="welcome-actions" style="display:flex; gap:10px; align-items:center;">
+                    <a href="enroll.html" target="_blank" class="btn btn-primary btn-lg" style="text-decoration:none;">
+                        <i class="fa-solid fa-child-reaching"></i> Public Admission Form
+                    </a>
+                    <button id="exportAdmissionsCsvBtn" class="btn btn-warning btn-lg">
+                        <i class="fa-solid fa-file-excel"></i> Export (CSV)
+                    </button>
+                    <button id="clearAllAdmissionsBtn" class="btn btn-outline-sm" style="color:#ef4444; border-color:#fca5a5;" title="Clear all admissions">
+                        <i class="fa-solid fa-trash-can"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Stats Cards -->
+            <div class="admin-stats-grid">
+                <div class="admin-stat-card">
+                    <div class="stat-icon-wrap bg-blue"><i class="fa-solid fa-file-signature"></i></div>
+                    <div>
+                        <span class="stat-meta">Total Applications</span>
+                        <h3 id="statAdmissionTotal">0</h3>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon-wrap bg-amber"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <div>
+                        <span class="stat-meta">Pending Approval</span>
+                        <h3 id="statAdmissionPending">0</h3>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon-wrap bg-green"><i class="fa-solid fa-circle-check"></i></div>
+                    <div>
+                        <span class="stat-meta">Admitted & Enrolled</span>
+                        <h3 id="statAdmissionApproved">0</h3>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon-wrap bg-purple"><i class="fa-solid fa-school"></i></div>
+                    <div>
+                        <span class="stat-meta">Tutoring Clusters</span>
+                        <h3>3 Active Centers</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Filter & Controls -->
+            <div class="admin-controls-card">
+                <div class="search-input-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="admissionSearchInput" placeholder="Search by child name, guardian, phone, center, or subject...">
+                </div>
+
+                <div class="filter-dropdown-wrap" style="display:flex; gap:10px;">
+                    <select id="admissionStatusFilter">
+                        <option value="">All Statuses</option>
+                        <option value="Pending Approval">Pending Approval</option>
+                        <option value="Admitted & Enrolled">Admitted & Enrolled</option>
+                    </select>
+
+                    <select id="admissionCenterFilter">
+                        <option value="">All Centers</option>
+                        <option value="Center A: Math Camp (Azad Nagar)">Center A: Math Camp</option>
+                        <option value="Center B: English Camp (Railway Colony)">Center B: English Camp</option>
+                        <option value="Center C: Riverfront Open School">Center C: Riverfront School</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Admissions Data Table Card -->
+            <div class="admin-table-card">
+                <div class="table-card-header">
+                    <h3><i class="fa-solid fa-id-card-clip"></i> Child Admission Applications Database</h3>
+                    <span class="badge-pill light-blue" id="admissionsRecordCount">0 Applications</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table" id="admissionsTable">
+                        <thead>
+                            <tr>
+                                <th>App ID & Date</th>
+                                <th>Child Information</th>
+                                <th>Assigned Center & Shift</th>
+                                <th>Learning Focus & Schooling</th>
+                                <th>Guardian & Contact</th>
+                                <th>Status</th>
+                                <th>Coordinator Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admissionsTableBody">
+                            <!-- Populated dynamically via script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 3: DAILY STUDENT ATTENDANCE & PARTICIPATION LOGGER (MODULE 3) -->
+        <!-- ================================================================= -->
+        <div id="paneAttendance" class="admin-tab-pane">
+
+            <!-- Real-Time Metrics & Participation Rate Cards -->
+            <div class="attendance-stats-grid">
+                <!-- Participation Rate Card -->
+                <div class="attendance-stat-card rate">
+                    <div class="attendance-stat-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <div class="attendance-stat-info" style="flex-grow: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <h3 id="participationRateDisplay">0%</h3>
+                            <span class="status-tag" id="rateStatusBadge" style="background:#fef3c7; color:#b45309; font-size:11px;">Awaiting Data</span>
+                        </div>
+                        <span>Classroom Participation Rate</span>
+                        <div class="progress-bar-container" style="background:#e2e8f0; height:8px; border-radius:10px; overflow:hidden; margin-top:8px;">
+                            <div id="participationProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #10b981, #059669); transition: width 0.4s ease;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Present Today Card -->
+                <div class="attendance-stat-card success">
+                    <div class="attendance-stat-icon">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div class="attendance-stat-info">
+                        <h3 id="presentCountDisplay">0</h3>
+                        <span>Present Students Today</span>
+                    </div>
+                </div>
+
+                <!-- Absent Today Card -->
+                <div class="attendance-stat-card danger">
+                    <div class="attendance-stat-icon">
+                        <i class="fa-solid fa-user-xmark"></i>
+                    </div>
+                    <div class="attendance-stat-info">
+                        <h3 id="absentCountDisplay">0</h3>
+                        <span>Absent Students Today</span>
+                    </div>
+                </div>
+
+                <!-- Total Enrolled Card -->
+                <div class="attendance-stat-card primary">
+                    <div class="attendance-stat-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="attendance-stat-info">
+                        <h3 id="totalEnrolledDisplay">0</h3>
+                        <span>Total Enrolled Students</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls & Filter Toolbar -->
+            <div class="admin-controls-card">
+                <div class="filter-dropdown-wrap" style="flex-grow:1; display:flex; gap:14px; flex-wrap:wrap; align-items: flex-end;">
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                            <i class="fa-regular fa-calendar"></i> Attendance Date
+                        </label>
+                        <input type="date" id="attendanceDateInput" style="padding:9px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px; background:white;">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                            <i class="fa-solid fa-location-dot"></i> Teaching Center
+                        </label>
+                        <select id="attendanceCenterSelect" style="padding:9px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px; background:white;">
+                            <option value="All Centers">All Learning Centers</option>
+                            <option value="Center A: Math Camp (Azad Nagar)">Center A: Math Camp (Azad Nagar)</option>
+                            <option value="Center B: English Camp (Railway Colony)">Center B: English Camp (Railway Colony)</option>
+                            <option value="Center C: Riverfront Open School">Center C: Riverfront Open School</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                            <i class="fa-regular fa-clock"></i> Evening Shift
+                        </label>
+                        <select id="attendanceShiftSelect" style="padding:9px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px; background:white;">
+                            <option value="4:00 PM – 5:00 PM (Early Shift)">4:00 PM – 5:00 PM (Early Shift)</option>
+                            <option value="5:00 PM – 6:00 PM (Primary Shift)" selected>5:00 PM – 6:00 PM (Primary Shift)</option>
+                            <option value="6:00 PM – 7:00 PM (Senior Shift)">6:00 PM – 7:00 PM (Senior Shift)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                            <i class="fa-solid fa-magnifying-glass"></i> Search Child
+                        </label>
+                        <input type="text" id="attendanceSearchInput" placeholder="Search child name or ID..." style="padding:9px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px; background:white; min-width:180px;">
+                    </div>
+                </div>
+
+                <!-- Toolbar Action Buttons -->
+                <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end;">
+                    <button id="openEnrollModalBtn" class="btn btn-primary" style="padding:9px 14px; font-size:13px;">
+                        <i class="fa-solid fa-user-plus"></i> Enroll Student
+                    </button>
+                    <button id="markAllPresentBtn" class="btn btn-outline-sm" title="Mark all filtered students present">
+                        <i class="fa-solid fa-check-double"></i> All Present
+                    </button>
+                    <button id="markAllAbsentBtn" class="btn btn-outline-sm" title="Mark all filtered students absent">
+                        <i class="fa-solid fa-xmark"></i> All Absent
+                    </button>
+                    <button id="saveAttendanceBtn" class="btn btn-warning" style="padding:9px 14px; font-size:13px;">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Session
+                    </button>
+                    <button id="exportAttendanceCsvBtn" class="btn btn-secondary" style="padding:9px 14px; font-size:13px;" title="Export attendance to CSV">
+                        <i class="fa-solid fa-file-excel"></i> Export CSV
+                    </button>
+                </div>
+            </div>
+
+            <!-- Student Attendance Grid Table -->
+            <div class="admin-table-card">
+                <div class="table-card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                    <div>
+                        <h3><i class="fa-solid fa-clipboard-check"></i> Center Attendance Sheet (<span id="activeDateLabel">Today</span>)</h3>
+                        <p style="font-size:13px; color:#64748b; margin-top:2px;">Click <strong>Present</strong> when a child walks in to mark instant presence with exact arrival time.</p>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="badge-pill light-blue" id="attendanceFeedbackBadge">
+                            <i class="fa-solid fa-bolt"></i> Live Auto-Save Enabled
+                        </span>
+                        <button id="clearRosterBtn" class="btn btn-outline-sm" style="font-size:11px; padding:4px 8px; color:#dc2626; border-color:#fee2e2;" title="Clear all enrolled students">
+                            <i class="fa-solid fa-trash-can"></i> Clear Roster
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-scroll-container">
+                    <table class="admin-data-table" id="attendanceGridTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;">#</th>
+                                <th>Student ID</th>
+                                <th>Child's Full Name</th>
+                                <th>Age / Grade</th>
+                                <th>Teaching Center</th>
+                                <th>Assigned Subject</th>
+                                <th>Guardian Mobile</th>
+                                <th style="text-align:center; min-width: 170px;">Live Attendance Status</th>
+                                <th style="text-align:center;">Arrival Time</th>
+                                <th style="text-align:center; width: 70px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceGridBody">
+                            <!-- Dynamically populated via script.js from localStorage -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Saved Daily Attendance History Section -->
+            <div class="admin-table-card" style="margin-top: 30px;">
+                <div class="table-card-header" style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> Committed Session Attendance History</h3>
+                        <p style="font-size:13px; color:#64748b; margin-top:2px;">Official records saved from completed evening tutoring sessions.</p>
+                    </div>
+                    <button id="clearHistoryBtn" class="btn btn-outline-sm" style="font-size:11px; color:#dc2626; border-color:#fee2e2;">
+                        <i class="fa-solid fa-trash-can"></i> Clear History
+                    </button>
+                </div>
+
+                <div class="table-scroll-container">
+                    <table class="admin-data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Session Date</th>
+                                <th>Center</th>
+                                <th>Shift Timing</th>
+                                <th>Total Students</th>
+                                <th>Present</th>
+                                <th>Absent</th>
+                                <th>Participation Rate</th>
+                                <th>Committed Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceHistoryBody">
+                            <!-- Populated via script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Modal: Enroll New Student -->
+    <div id="enrollStudentModal" class="story-modal-overlay" style="display:none;">
+        <div class="story-modal-box" style="max-width: 520px;">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-user-plus"></i> Enroll New Student in Roster</h3>
+                <button class="close-modal-btn" id="closeEnrollModalBtn">&times;</button>
+            </div>
+            <form id="enrollStudentForm">
+                <div class="modal-body">
+                    <p style="font-size:13px; color:#64748b; margin-bottom:16px;">
+                        Add a newly joined child to the official evening tutoring roster. The child will be immediately eligible for daily attendance and diagnostic assessment.
+                    </p>
+
+                    <div style="margin-bottom:14px;">
+                        <label style="display:block; font-size:13px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                            Child's Full Name <span style="color:#dc2626;">*</span>
+                        </label>
+                        <input type="text" id="newStudentName" required placeholder="e.g. Ramesh Kumar" style="width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px;">
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:14px;">
+                        <div>
+                            <label style="display:block; font-size:13px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                                Age & Grade <span style="color:#dc2626;">*</span>
+                            </label>
+                            <input type="text" id="newStudentAge" required placeholder="e.g. 9 yrs (Grade 3)" style="width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px;">
+                        </div>
+                        <div>
+                            <label style="display:block; font-size:13px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                                Primary Subject
+                            </label>
+                            <select id="newStudentSubject" style="width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px; background:white;">
+                                <option value="Foundational Math">Foundational Math</option>
+                                <option value="English Phonics">English Phonics</option>
+                                <option value="Hindi Literacy">Hindi Literacy</option>
+                                <option value="General Science">General Science</option>
+                                <option value="Arts & Hygiene">Arts & Hygiene</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:14px;">
+                        <label style="display:block; font-size:13px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                            Learning Center <span style="color:#dc2626;">*</span>
+                        </label>
+                        <select id="newStudentCenter" required style="width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px; background:white;">
+                            <option value="Center A: Math Camp (Azad Nagar)">Center A: Math Camp (Azad Nagar)</option>
+                            <option value="Center B: English Camp (Railway Colony)">Center B: English Camp (Railway Colony)</option>
+                            <option value="Center C: Riverfront Open School">Center C: Riverfront Open School</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom:14px;">
+                        <label style="display:block; font-size:13px; font-weight:700; color:#12304a; margin-bottom:4px;">
+                            Parent / Guardian Mobile Phone <span style="color:#dc2626;">*</span>
+                        </label>
+                        <input type="tel" id="newStudentPhone" required maxlength="10" placeholder="10-digit mobile number" style="width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px;">
+                    </div>
+                </div>
+                <div class="modal-footer" style="display:flex; justify-content:flex-end; gap:10px;">
+                    <button type="button" class="btn btn-secondary" id="cancelEnrollBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-check"></i> Enroll Child
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Footer -->
+    <footer class="admin-footer">
+        <div class="container footer-bottom-flex">
+            <p>© 2026 Slum Literacy Drive And Evening Volunteer Teacher Portal - Coordinator Dashboard</p>
+            <p>Admin: Siddharth Kumar (Reg: 12612227 | Roll: RK4P26YMB46)</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

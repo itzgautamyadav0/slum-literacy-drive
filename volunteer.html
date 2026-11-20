@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Teacher Shift Registration | Slum Literacy Drive</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-volunteer">
+
+    <!-- Top Announcement Bar -->
+    <div class="top-announcement">
+        <div class="container announcement-content">
+            <span><i class="fa-solid fa-graduation-cap"></i> <strong>Volunteer Teacher Drive:</strong> Registrations open for free evening teaching shifts!</span>
+            <div class="announcement-right">
+                <a href="admin.html" class="admin-link-badge"><i class="fa-solid fa-lock"></i> Admin Portal</a>
+                <a href="index.html" class="announcement-link"><i class="fa-solid fa-house"></i> Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <div>
+                    <h2>Slum Literacy <span>Drive</span></h2>
+                    <span style="font-size: 11px; color: #cbd5e1; display: block; line-height: 1;">Evening Volunteer Teacher Portal</span>
+                </div>
+            </a>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="volunteer.html" class="active">Shift Roster</a>
+                <a href="enroll.html">Child Admission</a>
+                <a href="tracker.html">Diagnostic Tracker</a>
+                <a href="lessons.html">Lesson Repository</a>
+                <a href="report.html">Progress Report</a>
+                <a href="admin.html" class="nav-btn">Admin Portal</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="page-header-banner">
+        <div class="container">
+            <div class="badge-pill light">
+                <i class="fa-solid fa-chalkboard-user"></i> Grassroots Youth NGO Teaching Shifts
+            </div>
+            <h1>Volunteer Teacher Shift Registration</h1>
+            <p>Join our grassroots cohort of evening volunteer teachers. Give just 1 hour an evening to educate and mentor underprivileged children in urban slums.</p>
+        </div>
+    </div>
+
+    <!-- Volunteer Main Section (Clean Form Page Only - Zero Database Preview Here) -->
+    <section class="section volunteer-page-section">
+        <div class="container">
+            <div class="volunteer-layout-grid">
+                
+                <!-- Left Sidebar: Why Volunteer & Shift Instructions -->
+                <div class="volunteer-sidebar">
+                    <div class="sidebar-card highlight-card">
+                        <h3><i class="fa-solid fa-award"></i> Teacher Volunteer Perks</h3>
+                        <p class="sidebar-intro">You don't need to be a certified educator. If you can patiently teach basic reading, counting, or sciences, our slum camps need your guidance.</p>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fa-solid fa-certificate"></i></div>
+                            <div>
+                                <h4>Social Internship Certificate</h4>
+                                <p>Get a verified certificate of completion (25+ teaching hours) recognized for university credits and resumes.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h4>100% Flexible Evening Shifts</h4>
+                                <p>Choose 1-hour slots (4-5 PM, 5-6 PM, 6-7 PM) and specific days that easily match your college timetable.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fa-solid fa-book"></i></div>
+                            <div>
+                                <h4>Free Teaching Materials Provided</h4>
+                                <p>We provide curated flashcards, workbooks, abacus counters, and DIY science kits at each slum center.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h4>Direct Admin Submission</h4>
+                                <p>Your application is submitted directly to the center coordinator's administrative panel for verification.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card info-card">
+                        <h3><i class="fa-solid fa-location-dot"></i> Active Teaching Centers</h3>
+                        <ul class="centers-list">
+                            <li><i class="fa-solid fa-school"></i> <strong>Center 01:</strong> Azad Nagar Community Hall</li>
+                            <li><i class="fa-solid fa-school"></i> <strong>Center 02:</strong> Railway Colony Literacy Camp</li>
+                            <li><i class="fa-solid fa-school"></i> <strong>Center 03:</strong> Riverfront Shelter School</li>
+                            <li><i class="fa-solid fa-school"></i> <strong>Center 04:</strong> Industrial Area Youth Shelter</li>
+                        </ul>
+                        <div class="support-box">
+                            <i class="fa-solid fa-headset"></i>
+                            <div>
+                                <strong>Volunteer Teacher Coordinator</strong>
+                                <span>Helpline: +91 98765 43210</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Registration Form -->
+                <div class="volunteer-form-wrapper">
+                    <div class="form-card">
+                        <div class="form-header">
+                            <h2>Teacher Shift Application</h2>
+                            <p>Fill out the details below to register for an evening volunteer teaching shift.</p>
+                        </div>
+
+                        <form id="volunteerForm" class="modern-volunteer-form" novalidate>
+                            
+                            <!-- Full Name -->
+                            <div class="form-group">
+                                <label for="name">
+                                    <i class="fa-solid fa-user"></i> Full Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name (e.g. Rahul Sharma)" required autocomplete="name">
+                                <span class="error-msg" id="nameError"></span>
+                            </div>
+
+                            <!-- Mobile & Email in 2 columns -->
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="phone">
+                                        <i class="fa-solid fa-phone"></i> Mobile Number <span class="required">*</span>
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" placeholder="10-digit number (e.g. 9876543210)" pattern="[0-9]{10}" maxlength="10" required autocomplete="tel">
+                                    <span class="error-msg" id="phoneError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">
+                                        <i class="fa-solid fa-envelope"></i> Email Address <span class="required">*</span>
+                                    </label>
+                                    <input type="email" id="email" name="email" placeholder="e.g. rahul@example.com" required autocomplete="email">
+                                    <span class="error-msg" id="emailError"></span>
+                                </div>
+                            </div>
+
+                            <!-- Teaching Subject & Preferred Center -->
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="subject">
+                                        <i class="fa-solid fa-book"></i> Subject to Teach <span class="required">*</span>
+                                    </label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="">-- Choose Subject --</option>
+                                        <option value="Mathematics">Mathematics & Numeracy</option>
+                                        <option value="English">English Phonics & Reading</option>
+                                        <option value="Science">General Science & Labs</option>
+                                        <option value="General Knowledge">General Knowledge & Awareness</option>
+                                        <option value="Arts and Crafts">Arts, Crafts & Hygiene</option>
+                                    </select>
+                                    <span class="error-msg" id="subjectError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="center">
+                                        <i class="fa-solid fa-map-location-dot"></i> Teaching Center <span class="required">*</span>
+                                    </label>
+                                    <select id="center" name="center" required>
+                                        <option value="">-- Choose Nearest Center --</option>
+                                        <option value="Center 01: Azad Nagar Community Hall">Center 01: Azad Nagar Community Hall</option>
+                                        <option value="Center 02: Railway Colony Camp">Center 02: Railway Colony Camp</option>
+                                        <option value="Center 03: Riverfront Shelter School">Center 03: Riverfront Shelter School</option>
+                                        <option value="Center 04: Industrial Area Youth Shelter">Center 04: Industrial Area Youth Shelter</option>
+                                    </select>
+                                    <span class="error-msg" id="centerError"></span>
+                                </div>
+                            </div>
+
+                            <!-- Available Days Multi-selector -->
+                            <div class="form-group">
+                                <label>
+                                    <i class="fa-regular fa-calendar-days"></i> Available Shift Days <span class="required">*</span>
+                                    <span class="label-hint">(Select at least one day)</span>
+                                </label>
+                                <div class="days-pill-grid">
+                                    <label class="day-pill">
+                                        <input type="checkbox" name="days" value="Monday">
+                                        <span class="pill-box">Mon</span>
+                                    </label>
+                                    <label class="day-pill">
+                                        <input type="checkbox" name="days" value="Tuesday">
+                                        <span class="pill-box">Tue</span>
+                                    </label>
+                                    <label class="day-pill">
+                                        <input type="checkbox" name="days" value="Wednesday">
+                                        <span class="pill-box">Wed</span>
+                                    </label>
+                                    <label class="day-pill">
+                                        <input type="checkbox" name="days" value="Thursday">
+                                        <span class="pill-box">Thu</span>
+                                    </label>
+                                    <label class="day-pill">
+                                        <input type="checkbox" name="days" value="Friday">
+                                        <span class="pill-box">Fri</span>
+                                    </label>
+                                    <label class="day-pill">
+                                        <input type="checkbox" name="days" value="Saturday">
+                                        <span class="pill-box">Sat</span>
+                                    </label>
+                                    <label class="day-pill">
+                                        <input type="checkbox" name="days" value="Sunday">
+                                        <span class="pill-box">Sun</span>
+                                    </label>
+                                </div>
+                                <span class="error-msg" id="daysError"></span>
+                            </div>
+
+                            <!-- Evening Time Slot -->
+                            <div class="form-group">
+                                <label for="time">
+                                    <i class="fa-regular fa-clock"></i> Evening Shift Timing <span class="required">*</span>
+                                </label>
+                                <select id="time" name="time" required>
+                                    <option value="">-- Choose Your 1-Hour Evening Shift --</option>
+                                    <option value="4 PM - 5 PM">4:00 PM – 5:00 PM (Early Evening Shift)</option>
+                                    <option value="5 PM - 6 PM">5:00 PM – 6:00 PM (Primary Shift)</option>
+                                    <option value="6 PM - 7 PM">6:00 PM – 7:00 PM (Senior Shift)</option>
+                                    <option value="Weekend Special (10 AM - 12 PM)">Weekend Special (Saturday/Sunday 10 AM – 12 PM)</option>
+                                </select>
+                                <span class="error-msg" id="timeError"></span>
+                            </div>
+
+                            <!-- Address & Locality -->
+                            <div class="form-group">
+                                <label for="address">
+                                    <i class="fa-solid fa-house-user"></i> Locality / Residential Address <span class="required">*</span>
+                                </label>
+                                <textarea id="address" name="address" rows="3" placeholder="Enter your current locality or college hostel address..." required></textarea>
+                                <span class="error-msg" id="addressError"></span>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-warning btn-block btn-submit">
+                                <i class="fa-solid fa-paper-plane"></i> Submit Teacher Application
+                            </button>
+
+                            <!-- Live Feedback Message -->
+                            <div id="formMessage" class="form-feedback-alert" style="display:none;" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-box brand-box">
+                <div class="footer-brand">
+                    <span class="footer-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <h3>Slum Literacy <span>Drive</span></h3>
+                </div>
+                <p>A non-profit community initiative dedicated to educating children in urban slum settlements through student volunteerism.</p>
+            </div>
+            <div class="footer-box">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About Mission</a></li>
+                    <li><a href="index.html#programs">Curriculum</a></li>
+                    <li><a href="admin.html">Admin Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h4>Project Submission</h4>
+                <p><strong>Student Name:</strong> Siddharth Kumar</p>
+                <p><strong>Reg. No:</strong> 12612227</p>
+                <p><strong>Roll No:</strong> RK4P26YMB46</p>
+                <p><strong>Group Roll Nos:</strong> 46, 47, 62</p>
+            </div>
+            <div class="footer-box">
+                <h4>Volunteer Helpdesk</h4>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> coordinator@slumliteracy.org</p>
+                <p class="shift-time"><i class="fa-regular fa-clock"></i> Evening Shifts: 4:00 PM – 7:00 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container copyright-flex">
+                <p>© 2026 Slum Literacy Drive And Evening Volunteer Teacher Portal. All Rights Reserved.</p>
+                <p class="project-tag"><a href="admin.html" style="color:#fbbf24;"><i class="fa-solid fa-lock"></i> Admin Portal (Confidential Database)</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Child Admission & Enrollment Form | Slum Literacy Drive</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-volunteer">
+
+    <!-- Top Announcement Bar -->
+    <div class="top-announcement">
+        <div class="container announcement-content">
+            <span><i class="fa-solid fa-graduation-cap"></i> <strong>Free Education Drive:</strong> 100% Free Evening Classes, Books & Mentorship for Slum Children</span>
+            <div class="announcement-right">
+                <a href="admin.html" class="admin-link-badge"><i class="fa-solid fa-lock"></i> Coordinator Admin</a>
+                <a href="index.html" class="announcement-link"><i class="fa-solid fa-house"></i> Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <div>
+                    <h2>Slum Literacy <span>Drive</span></h2>
+                    <span style="font-size: 11px; color: #cbd5e1; display: block; line-height: 1;">Free Child Admission Portal</span>
+                </div>
+            </a>
+            <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="volunteer.html">Volunteer Shift</a>
+                <a href="enroll.html" class="active">Child Admission</a>
+                <a href="tracker.html">Diagnostic Tracker</a>
+                <a href="lessons.html">Lesson Repository</a>
+                <a href="report.html">Progress Report</a>
+                <a href="admin.html" class="nav-btn">Admin Portal</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header Banner -->
+    <div class="page-header-banner">
+        <div class="container">
+            <div class="badge-pill light">
+                <i class="fa-solid fa-child-reaching"></i> Free Evening Tutoring Admission • Session 2026
+            </div>
+            <h1>Child Admission & Evening Class Enrollment</h1>
+            <p>Enroll underprivileged children living in urban slum clusters for completely free evening tutoring classes. Textbooks, stationery, and learning kits are provided at zero cost.</p>
+        </div>
+    </div>
+
+    <!-- Main Registration Section -->
+    <main class="container volunteer-page-section">
+        <div class="volunteer-layout-grid">
+
+            <!-- Left: Guidelines & NGO Support Info -->
+            <div class="volunteer-sidebar">
+                <div class="guideline-card">
+                    <div class="guideline-icon">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>100% Free Education Guarantee</h3>
+                    <p>No fees of any kind. Every child receives free notebooks, pencil boxes, storybooks, and individualized volunteer teaching.</p>
+                </div>
+
+                <div class="guideline-card">
+                    <div class="guideline-icon" style="background:#ecfdf5; color:#10b981;">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3>Convenient Evening Timings</h3>
+                    <p>Classes run Monday to Saturday from <strong>4:00 PM – 7:00 PM</strong> so children who assist parents during the day can learn every evening.</p>
+                </div>
+
+                <div class="guideline-card">
+                    <div class="guideline-icon" style="background:#fffbeb; color:#f59e0b;">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <h3>Admission Verification Process</h3>
+                    <p>After you submit this form, Coordinator <strong>Siddharth Kumar</strong> reviews the application in the Admin Portal and confirms admission.</p>
+                </div>
+
+                <div class="contact-box" style="background:white; border-radius:12px; padding:20px; border:1px solid #e2e8f0;">
+                    <h4 style="font-size:14px; color:#12304a; margin-bottom:8px;"><i class="fa-solid fa-phone"></i> Need Assistance in Enrolling?</h4>
+                    <p style="font-size:13px; color:#64748b; margin-bottom:8px;">Call or WhatsApp our field desk:</p>
+                    <strong style="color:#25617b; font-size:15px;">+91 98765 43210</strong>
+                </div>
+            </div>
+
+            <!-- Right: Child Admission Form -->
+            <div class="volunteer-form-wrapper">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h2><i class="fa-solid fa-file-pen"></i> Child Admission Registration Form</h2>
+                        <p>Fill out the child and guardian information below. Fields marked with <span style="color:#dc2626;">*</span> are mandatory.</p>
+                    </div>
+
+                    <!-- Feedback Alert Box -->
+                    <div id="enrollFormMessage" class="form-feedback-alert" style="display:none;"></div>
+
+                    <form id="childAdmissionForm" novalidate>
+
+                        <!-- Child Full Name -->
+                        <div class="form-group">
+                            <label for="childFullName">Child's Full Name <span class="required">*</span></label>
+                            <input type="text" id="childFullName" required placeholder="e.g. Ramesh Kumar / Pinky Kumari">
+                            <span class="field-error" id="errChildName"></span>
+                        </div>
+
+                        <!-- Age & Gender Grid -->
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="childAge">Age / Approximate Grade <span class="required">*</span></label>
+                                <input type="text" id="childAge" required placeholder="e.g. 9 Years (Grade 3)">
+                                <span class="field-error" id="errChildAge"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="childGender">Child's Gender <span class="required">*</span></label>
+                                <select id="childGender" required>
+                                    <option value="Boy">Boy</option>
+                                    <option value="Girl">Girl</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Teaching Center & Preferred Subject -->
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="childCenter">Preferred Teaching Center <span class="required">*</span></label>
+                                <select id="childCenter" required>
+                                    <option value="Center A: Math Camp (Azad Nagar)">Center A: Math Camp (Azad Nagar)</option>
+                                    <option value="Center B: English Camp (Railway Colony)">Center B: English Camp (Railway Colony)</option>
+                                    <option value="Center C: Riverfront Open School">Center C: Riverfront Open School</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="childSubject">Primary Learning Focus <span class="required">*</span></label>
+                                <select id="childSubject" required>
+                                    <option value="Foundational Math">Foundational Math (Addition & Counting)</option>
+                                    <option value="English Phonics">English Phonics & Alphabet</option>
+                                    <option value="Hindi Literacy">Hindi Reading & Writing</option>
+                                    <option value="All Subjects">All Foundational Subjects</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Schooling Background -->
+                        <div class="form-group">
+                            <label for="childSchoolStatus">Current Educational Status</label>
+                            <select id="childSchoolStatus">
+                                <option value="Never went to school (First Generation Learner)">Never went to school (First Generation Learner)</option>
+                                <option value="School Dropout (Discontinued)">School Dropout (Discontinued)</option>
+                                <option value="Currently in Govt Primary School (Needs Evening Tutoring)">Currently in Govt Primary School (Needs Evening Tutoring)</option>
+                            </select>
+                        </div>
+
+                        <!-- Guardian Name & Occupation -->
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="guardianName">Parent / Guardian Full Name <span class="required">*</span></label>
+                                <input type="text" id="guardianName" required placeholder="e.g. Suresh Kumar Paswan">
+                                <span class="field-error" id="errGuardianName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="guardianOccupation">Guardian's Occupation</label>
+                                <select id="guardianOccupation">
+                                    <option value="Daily Wage Laborer">Daily Wage Laborer</option>
+                                    <option value="Rickshaw / E-Rickshaw Driver">Rickshaw / E-Rickshaw Driver</option>
+                                    <option value="Street Vendor / Hawking">Street Vendor / Hawking</option>
+                                    <option value="Domestic Worker / Helper">Domestic Worker / Helper</option>
+                                    <option value="Construction Worker">Construction Worker</option>
+                                    <option value="Other">Other Daily Earner</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Guardian Mobile Phone (10 digits) -->
+                        <div class="form-group">
+                            <label for="guardianPhone">Parent / Guardian Mobile Phone Number <span class="required">*</span></label>
+                            <div style="position:relative;">
+                                <span style="position:absolute; left:12px; top:50%; transform:translateY(-50%); font-weight:700; color:#64748b; font-size:14px;">+91</span>
+                                <input type="tel" id="guardianPhone" required maxlength="10" placeholder="10-digit mobile number" style="padding-left:50px;">
+                            </div>
+                            <small style="color:#64748b; font-size:12px; display:block; margin-top:4px;">Coordinator will call/WhatsApp this number to confirm admission.</small>
+                            <span class="field-error" id="errGuardianPhone"></span>
+                        </div>
+
+                        <!-- Slum Address / Locality -->
+                        <div class="form-group">
+                            <label for="childAddress">Slum Locality / Residential Landmark <span class="required">*</span></label>
+                            <textarea id="childAddress" required rows="3" placeholder="e.g. Jhuggi No. 42, Near Railway Water Tank, Azad Nagar Slum Cluster"></textarea>
+                            <span class="field-error" id="errChildAddress"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div style="margin-top:24px;">
+                            <button type="submit" class="btn btn-warning btn-lg" style="width:100%; font-size:1.05rem; padding:14px; font-weight:800;">
+                                <i class="fa-solid fa-paper-plane"></i> Submit Child Admission Request
+                            </button>
+                        </div>
+
+                        <p style="text-align:center; font-size:12px; color:#64748b; margin-top:14px;">
+                            <i class="fa-solid fa-lock"></i> Applications are verified directly by Volunteer Coordinator Siddharth Kumar in the Admin Portal.
+                        </p>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-box brand-box">
+                <div class="footer-brand">
+                    <span class="footer-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <h3>Slum Literacy <span>Drive</span></h3>
+                </div>
+                <p>Grassroots Youth NGO Project: Evening Volunteer Teacher Shift Management and Child Literacy Portal.</p>
+            </div>
+            <div class="footer-box">
+                <h4>Portal Modules</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home Overview</a></li>
+                    <li><a href="volunteer.html">Volunteer Shift Roster</a></li>
+                    <li><a href="enroll.html">Child Admission Form</a></li>
+                    <li><a href="tracker.html">Diagnostic Tracker</a></li>
+                    <li><a href="lessons.html">Lesson Plan Repository</a></li>
+                    <li><a href="report.html">Student Progress Report</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h4>Academic Submission</h4>
+                <p><strong>Student:</strong> Siddharth Kumar</p>
+                <p><strong>Reg No:</strong> 12612227 | <strong>Roll No:</strong> RK4P26YMB46</p>
+                <p><strong>Group:</strong> 46, 47, 62 | <strong>Course:</strong> CSE326</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container copyright-flex">
+                <p>© 2026 Slum Literacy Drive And Evening Volunteer Teaching Coordinator.</p>
+                <p><a href="admin.html" style="color:#fbbf24;">Open Admin Dashboard</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

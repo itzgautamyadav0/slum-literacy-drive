@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Lesson Plan Repository | Slum Literacy Drive</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-lessons">
+
+    <!-- Top Announcement -->
+    <div class="top-announcement">
+        <div class="container announcement-content">
+            <span><i class="fa-solid fa-shapes"></i> <strong>Module 4:</strong> Teaching Lesson Plan Repository, Interactive Games & Storybooks</span>
+            <div class="announcement-right">
+                <a href="admin.html" class="admin-link-badge"><i class="fa-solid fa-lock"></i> Admin Portal</a>
+                <a href="index.html" class="announcement-link"><i class="fa-solid fa-house"></i> Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <div>
+                    <h2>Slum Literacy <span>Drive</span></h2>
+                    <span style="font-size: 11px; color: #cbd5e1; display: block; line-height: 1;">Volunteer Teaching Coordinator</span>
+                </div>
+            </a>
+            <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="volunteer.html">Shift Roster</a>
+                <a href="enroll.html">Child Admission</a>
+                <a href="tracker.html">Diagnostic Tracker</a>
+                <a href="lessons.html" class="active">Lesson Repository</a>
+                <a href="report.html">Progress Report</a>
+                <a href="admin.html" class="nav-btn">Admin Portal</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header Banner -->
+    <div class="page-header-banner">
+        <div class="container">
+            <div class="badge-pill light">
+                <i class="fa-solid fa-gamepad"></i> Experiential Pedagogy & Learning Kits
+            </div>
+            <h1>Teaching Lesson Plan Repository</h1>
+            <p>Curated repository of fun educational games, illustrated digital storybooks, and printable practice worksheets for evening volunteer teachers.</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container admin-main">
+
+        <!-- Repository Tab Controls -->
+        <div class="repository-tab-bar">
+            <button class="repo-tab-btn active" onclick="switchRepoTab('games', this)">
+                <i class="fa-solid fa-dice"></i> Interactive Learning Games
+            </button>
+            <button class="repo-tab-btn" onclick="switchRepoTab('stories', this)">
+                <i class="fa-solid fa-book-journal-whills"></i> Illustrated Storybooks
+            </button>
+            <button class="repo-tab-btn" onclick="switchRepoTab('worksheets', this)">
+                <i class="fa-solid fa-file-pen"></i> Printable Worksheets
+            </button>
+        </div>
+
+        <!-- Tab 1: Interactive Learning Games -->
+        <section id="repo-games" class="repo-content-pane">
+            <div class="games-grid">
+                
+                <!-- Game 1: Mental Math Speed Quiz -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-tag bg-amber">Math Numeracy</span>
+                        <h3><i class="fa-solid fa-calculator"></i> Quick Mental Math Challenge</h3>
+                        <p>Interactive single-digit addition game for slum center children.</p>
+                    </div>
+                    <div class="game-body">
+                        <div class="math-question-box">
+                            <span id="mathQNum1">7</span> + <span id="mathQNum2">5</span> = ?
+                        </div>
+                        <div class="math-options-grid" id="mathOptions">
+                            <button class="math-opt-btn" onclick="checkMathAnswer(12)">12</button>
+                            <button class="math-opt-btn" onclick="checkMathAnswer(10)">10</button>
+                            <button class="math-opt-btn" onclick="checkMathAnswer(14)">14</button>
+                            <button class="math-opt-btn" onclick="checkMathAnswer(11)">11</button>
+                        </div>
+                        <div id="mathGameFeedback" class="game-feedback">Score: <strong id="mathScore">0</strong> correct answers</div>
+                        <button class="btn btn-outline-sm btn-block" onclick="nextMathQuestion()" style="margin-top:10px;">
+                            <i class="fa-solid fa-forward"></i> Next Question
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game 2: Phonics Sound Match -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-tag bg-blue">Phonics & Reading</span>
+                        <h3><i class="fa-solid fa-volume-high"></i> Phonics Alphabet Word Match</h3>
+                        <p>Match the starting phonetic sound with the correct picture word.</p>
+                    </div>
+                    <div class="game-body">
+                        <div class="phonics-prompt">
+                            Letter: <strong style="font-size:2rem; color:#25617b;" id="phonicsLetter">M</strong>
+                            <p style="font-size:12px; color:#64748b;">Which word begins with this sound?</p>
+                        </div>
+                        <div class="phonics-options-grid" id="phonicsOptions">
+                            <button class="phonics-opt-btn" onclick="checkPhonicsAnswer('Mango')">🥭 Mango</button>
+                            <button class="phonics-opt-btn" onclick="checkPhonicsAnswer('Apple')">🍎 Apple</button>
+                            <button class="phonics-opt-btn" onclick="checkPhonicsAnswer('Ball')">⚽ Ball</button>
+                            <button class="phonics-opt-btn" onclick="checkPhonicsAnswer('Fish')">🐟 Fish</button>
+                        </div>
+                        <div id="phonicsFeedback" class="game-feedback">Sound streak: <strong id="phonicsScore">0</strong></div>
+                        <button class="btn btn-outline-sm btn-block" onclick="nextPhonicsQuestion()" style="margin-top:10px;">
+                            <i class="fa-solid fa-forward"></i> Next Sound
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game 3: Science Curiosity Trivia -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-tag bg-green">Science Trivia</span>
+                        <h3><i class="fa-solid fa-flask"></i> Curiosity Science Quiz</h3>
+                        <p>Simple real-world observation questions to trigger curiosity.</p>
+                    </div>
+                    <div class="game-body">
+                        <div class="science-prompt">
+                            <p id="scienceQuestion">What do plants need most to make their food via photosynthesis?</p>
+                        </div>
+                        <div class="science-options-grid" id="scienceOptions">
+                            <button class="science-opt-btn" onclick="checkScienceAnswer(true)">Sunlight & Water</button>
+                            <button class="science-opt-btn" onclick="checkScienceAnswer(false)">Ice Cream</button>
+                            <button class="science-opt-btn" onclick="checkScienceAnswer(false)">Plastic Toys</button>
+                        </div>
+                        <div id="scienceFeedback" class="game-feedback">Curiosity points: <strong id="scienceScore">0</strong></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Tab 2: Illustrated Storybooks -->
+        <section id="repo-stories" class="repo-content-pane" style="display:none;">
+            <div class="stories-cards-grid">
+                <div class="story-item-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Story reading">
+                    <div class="story-item-body">
+                        <span class="badge-subject">Level 1: Beginner</span>
+                        <h3>The Thirsty Crow & The Pebbles</h3>
+                        <p>A classic fable teaching problem-solving, water displacement, and patience to young minds.</p>
+                        <button class="btn btn-warning btn-sm" onclick="openStoryModal('The Thirsty Crow', 'Once upon a hot summer afternoon, a clever crow was searching for drinking water. He found a clay pitcher in a village, but the water level was too low for his beak to reach. Thinking patiently, the crow noticed pebbles lying on the ground. One by one, he picked up the pebbles with his beak and dropped them into the pitcher. As the pebbles piled at the bottom, the water level rose to the top! The crow drank the cool water joyfully and flew away.<br><br><strong>Moral of the Story:</strong> Where there is a will, there is always a way. Patient problem-solving wins over panic!')">
+                            <i class="fa-solid fa-book-open"></i> Read Full Story
+                        </button>
+                    </div>
+                </div>
+
+                <div class="story-item-card">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="Student smiling">
+                    <div class="story-item-body">
+                        <span class="badge-subject">Level 2: Intermediate</span>
+                        <h3>Ramu's Dream of Books</h3>
+                        <p>Inspiring story of a boy from an urban slum who attended evening classes and ranked 1st in school.</p>
+                        <button class="btn btn-warning btn-sm" onclick="openStoryModal('Ramu\'s Dream of Books', 'Ramu lived in an informal settlement near the railway tracks. While other children spent their evenings wandering on the streets, Ramu noticed a group of college students holding open evening classes under a streetlight. He walked shyly with a broken pencil and an old notebook. The volunteer teacher welcomed him with a warm smile and taught him the alphabet. Within 6 months of daily practice, Ramu was reading entire Hindi storybooks. His parents enrolled him in 5th grade at the government school where he scored top marks!<br><br><strong>Lesson:</strong> Education has the power to transform every life when paired with dedication!')">
+                            <i class="fa-solid fa-book-open"></i> Read Full Story
+                        </button>
+                    </div>
+                </div>
+
+                <div class="story-item-card">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Handwriting">
+                    <div class="story-item-body">
+                        <span class="badge-subject">Level 3: Comprehension</span>
+                        <h3>The Secret of Clean Water</h3>
+                        <p>An engaging story teaching health, boiling water, and handwashing hygiene habits.</p>
+                        <button class="btn btn-warning btn-sm" onclick="openStoryModal('The Secret of Clean Water', 'In an urban slum colony, many children were missing classes due to stomach aches. Volunteer teacher Sneha decided to teach a practical lesson on hygiene. She brought a transparent bottle of muddy water and demonstrated how filtering with sand and boiling kills germs. The children made clean water posters and pledged to wash hands before meals. Within a month, center attendance doubled as the children stayed healthy and active!<br><br><strong>Lesson:</strong> Clean water and hygiene are the first steps to a bright educational future.')">
+                            <i class="fa-solid fa-book-open"></i> Read Full Story
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Printable Worksheets -->
+        <section id="repo-worksheets" class="repo-content-pane" style="display:none;">
+            <div class="worksheets-grid">
+                <div class="worksheet-card">
+                    <div class="ws-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <h4>Alphabet & Phonics Tracing Sheet (Tier 1)</h4>
+                    <p>High-contrast letter tracing guide for Hindi Varnamala and English uppercase/lowercase alphabets.</p>
+                    <button class="btn btn-outline-sm" onclick="window.print()">
+                        <i class="fa-solid fa-print"></i> Print Worksheet
+                    </button>
+                </div>
+
+                <div class="worksheet-card">
+                    <div class="ws-icon"><i class="fa-solid fa-file-waveform"></i></div>
+                    <h4>Single-Digit Addition & Number Line (Tier 3)</h4>
+                    <p>Visual addition exercises using fruit counters and number lines up to 50 for primary learners.</p>
+                    <button class="btn btn-outline-sm" onclick="window.print()">
+                        <i class="fa-solid fa-print"></i> Print Worksheet
+                    </button>
+                </div>
+
+                <div class="worksheet-card">
+                    <div class="ws-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+                    <h4>Daily Classroom Attendance Log Sheet</h4>
+                    <p>Standard paper roster backup format for center coordinators to log daily presence in open camps.</p>
+                    <button class="btn btn-outline-sm" onclick="window.print()">
+                        <i class="fa-solid fa-print"></i> Print Worksheet
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Modal Dialog -->
+        <div id="storyModal" class="story-modal-overlay" style="display:none;">
+            <div class="story-modal-box">
+                <div class="modal-header">
+                    <h3 id="storyModalTitle">Story Title</h3>
+                    <button class="close-modal-btn" onclick="closeStoryModal()">&times;</button>
+                </div>
+                <div class="modal-body" id="storyModalContent">
+                    Story text goes here...
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-sm" onclick="closeStoryModal()">Close Story Reader</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-box brand-box">
+                <div class="footer-brand">
+                    <span class="footer-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <h3>Slum Literacy <span>Drive</span></h3>
+                </div>
+                <p>Grassroots Youth NGO Project: Evening Volunteer Teacher Shift Management and Child Literacy Portal.</p>
+            </div>
+            <div class="footer-box">
+                <h4>Portal Modules</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home Overview</a></li>
+                    <li><a href="volunteer.html">Volunteer Shift Roster</a></li>
+                    <li><a href="tracker.html">Diagnostic Tracker</a></li>
+                    <li><a href="attendance.html">Daily Attendance Logger</a></li>
+                    <li><a href="lessons.html">Lesson Plan Repository</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h4>Academic Submission</h4>
+                <p><strong>Student:</strong> Siddharth Kumar</p>
+                <p><strong>Reg No:</strong> 12612227 | <strong>Roll No:</strong> RK4P26YMB46</p>
+                <p><strong>Group:</strong> 46, 47, 62 | <strong>Course:</strong> CSE326</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container copyright-flex">
+                <p>© 2026 Slum Literacy Drive And Evening Volunteer Teaching Coordinator.</p>
+                <p><a href="admin.html" style="color:#fbbf24;">Open Admin Dashboard</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

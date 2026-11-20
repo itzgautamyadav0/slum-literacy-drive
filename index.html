@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slum Literacy Drive And Evening Volunteer Teaching Coordinator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Top Announcement Bar (With Admin Portal Link so user can see candidate data) -->
+    <div class="top-announcement">
+        <div class="container announcement-content">
+            <div class="announcement-left">
+                <span><i class="fa-solid fa-bullhorn"></i> <strong>Official Project Portal:</strong> Slum Literacy Drive & Evening Volunteer Teaching Coordinator.</span>
+            </div>
+            <div class="announcement-right">
+                <!-- User's Admin Portal to view submitted data -->
+                <a href="admin.html" class="admin-link-badge">
+                    <i class="fa-solid fa-lock"></i> Admin Portal
+                </a>
+                <a href="volunteer.html" class="announcement-link">Teacher Shift Registration <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <div>
+                    <h2>Slum Literacy <span>Drive</span></h2>
+                    <span style="font-size: 11px; color: #cbd5e1; display: block; line-height: 1;">Volunteer Teaching Coordinator</span>
+                </div>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navigation Links (All Core Modules + Admin Portal) -->
+            <nav id="navMenu">
+                <a href="#home" class="active">Home</a>
+                <a href="volunteer.html">Shift Roster</a>
+                <a href="enroll.html" style="color:#f59e0b; font-weight:700;"><i class="fa-solid fa-child-reaching"></i> Child Admission</a>
+                <a href="tracker.html">Diagnostic Tracker</a>
+                <a href="lessons.html">Lesson Repository</a>
+                <a href="report.html">Progress Report</a>
+                <a href="admin.html" class="nav-btn">Admin Portal</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Hero Section -->
+    <section id="home">
+        <div class="home-overlay"></div>
+        <div class="container home-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-heart-pulse"></i> Grassroots Youth NGO Initiative • CSE326 Project
+            </div>
+            <h1>Slum Literacy Drive And <span>Evening Volunteer</span> Teaching Coordinator</h1>
+            <p>
+                An interactive frontend portal designed for grassroots youth NGOs to coordinate volunteer teacher schedules across urban slum centers (Center A: Math, Center B: English), track student foundational literacy/math progress, log daily attendance, and access lesson plans.
+            </p>
+            <div class="home-buttons">
+                <!-- Direct link to Child Admission -->
+                <a href="enroll.html" class="btn btn-warning" style="background:#f59e0b; border-color:#d97706; color:#12304a; font-weight:800;">
+                    <i class="fa-solid fa-child-reaching"></i> Free Child Admission
+                </a>
+                <!-- Direct link to dedicated volunteer registration page -->
+                <a href="volunteer.html" class="btn btn-primary">
+                    <i class="fa-solid fa-calendar-plus"></i> Volunteer Shift Registration
+                </a>
+                <a href="tracker.html" class="btn btn-secondary">
+                    <i class="fa-solid fa-chart-line"></i> Diagnostic Level Tracker
+                </a>
+                <a href="report.html" class="btn btn-secondary" style="background:#059669; border-color:#059669; color:white;">
+                    <i class="fa-solid fa-file-invoice"></i> Parent Progress Portal
+                </a>
+            </div>
+
+            <!-- Trust Highlights Pill -->
+            <div class="hero-stats-pill">
+                <div class="pill-stat">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <div>
+                        <strong>1,250+</strong>
+                        <span>Kids Taught</span>
+                    </div>
+                </div>
+                <div class="pill-divider"></div>
+                <div class="pill-stat">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <strong>85+</strong>
+                        <span>Volunteer Teachers</span>
+                    </div>
+                </div>
+                <div class="pill-divider"></div>
+                <div class="pill-stat">
+                    <i class="fa-solid fa-school"></i>
+                    <div>
+                        <strong>14</strong>
+                        <span>Evening Centers</span>
+                    </div>
+                </div>
+                <div class="pill-divider"></div>
+                <div class="pill-stat">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <strong>4 PM – 7 PM</strong>
+                        <span>Evening Shifts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Child Admission Callout Banner -->
+    <section style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-bottom: 2px solid #f59e0b; padding: 24px 0;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="width: 52px; height: 52px; border-radius: 50%; background: #f59e0b; color: white; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35); flex-shrink: 0;">
+                    <i class="fa-solid fa-child-reaching"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; color: #78350f; margin-bottom: 4px;">Free Evening School Admission Open for Underprivileged Children!</h3>
+                    <p style="font-size: 0.92rem; color: #92400e; margin: 0;">Parents and volunteers can enroll children (Ages 5-14) for evening tutoring camps across all slum centers. Zero fees, free books and individual attention.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <a href="enroll.html" class="btn btn-warning" style="font-weight: 800; padding: 12px 24px; font-size: 0.95rem; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35); white-space: nowrap;">
+                    <i class="fa-solid fa-file-signature"></i> Fill Admission Form &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four Core Modules Showcase Section (Directly from Teacher's Syllabus) -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <span class="sub-title">CORE FUNCTIONAL MODULES</span>
+            <h2>Project Architecture & Implemented Features</h2>
+            <p>Engineered to fulfill all 4 functional requirements specified in the project problem statement without relying on backend services.</p>
+
+            <div class="programs-cards-container">
+                <!-- Module 1 -->
+                <div class="program-card">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Shift Roster">
+                        <span class="card-badge">Module 1</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Teacher Shift Roster</h3>
+                        <p>Schedules volunteer teachers across centers (Center A: Math, Center B: English) with strict 10-digit validation and real-time coordinator dispatch.</p>
+                        <a href="volunteer.html" class="card-link">Open Shift Roster &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="program-card">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Diagnostic Tracker">
+                        <span class="card-badge badge-amber">Module 2</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Diagnostic Level Tracker</h3>
+                        <p>Tracks individual child learning levels across 3 tiers: Alphabet Recognition, Simple Reading, and Basic Addition with progress bars.</p>
+                        <a href="tracker.html" class="card-link">Open Diagnostic Tracker &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="program-card">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Attendance Logger">
+                        <span class="card-badge badge-green">Module 3 (Admin Portal)</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Daily Attendance Logger</h3>
+                        <p>Logs classroom attendance and automatically calculates regular participation rates. Protected inside the Coordinator Admin Portal.</p>
+                        <a href="admin.html#attendance" class="card-link"><i class="fa-solid fa-lock"></i> Open in Admin Portal &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="program-card">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="Lesson Repository">
+                        <span class="card-badge badge-purple">Module 4</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Lesson Plan Repository</h3>
+                        <p>Includes playable mental math quiz games, phonics sound match games, illustrated storybooks reader, and printable worksheets.</p>
+                        <a href="lessons.html" class="card-link">Open Lesson Repository &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Counter Numbers -->
+    <section id="impact" class="impact-counter-bar">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-box">
+                    <div class="counter-icon-wrap"><i class="fa-solid fa-child-reaching"></i></div>
+                    <div class="counter-value"><span class="stat-number" data-target="1250">0</span>+</div>
+                    <h4>Children Enrolled</h4>
+                    <p>Learning foundational alphabets and arithmetic in slum camps.</p>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-icon-wrap"><i class="fa-solid fa-hands-helping"></i></div>
+                    <div class="counter-value"><span class="stat-number" data-target="85">0</span>+</div>
+                    <h4>Volunteer Teachers</h4>
+                    <p>College youth and working professionals giving 1 evening hour.</p>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-icon-wrap"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <div class="counter-value"><span class="stat-number" data-target="14">0</span></div>
+                    <h4>Evening Centers</h4>
+                    <p>Safe open-air and community centers inside urban settlements.</p>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-icon-wrap"><i class="fa-solid fa-book-bookmark"></i></div>
+                    <div class="counter-value"><span class="stat-number" data-target="3500">0</span>+</div>
+                    <h4>Free Books Provided</h4>
+                    <p>Stationery, notebooks, and reading material freely donated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <span class="sub-title">ON THE GROUND</span>
+            <h2>Glimpses from Our Evening Centers</h2>
+            <p>Every photo tells a story of transformation, joy, and hope in children's lives.</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="Books distribution">
+                    <div class="gallery-caption">Free Textbook Distribution Drive</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Evening classes">
+                    <div class="gallery-caption">Center #02 Evening Class in Session</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Volunteer with student">
+                    <div class="gallery-caption">1-on-1 Mentorship Session</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Handwriting practice">
+                    <div class="gallery-caption">Handwriting & Phonics Practice</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Academic Project Details -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-box brand-box">
+                <div class="footer-brand">
+                    <span class="footer-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <h3>Slum Literacy <span>Drive</span></h3>
+                </div>
+                <p>Grassroots Youth NGO Project: Evening Volunteer Teacher Shift Management and Child Literacy Portal.</p>
+            </div>
+
+            <div class="footer-box">
+                <h4>All Portal Modules</h4>
+                <ul class="footer-links">
+                    <li><a href="volunteer.html">1. Shift Roster & Registration</a></li>
+                    <li><a href="enroll.html">2. Free Child Admission Form</a></li>
+                    <li><a href="tracker.html">3. Diagnostic Tracker</a></li>
+                    <li><a href="lessons.html">4. Lesson Plan Repository</a></li>
+                    <li><a href="report.html">5. Student Progress Report (Parent Portal)</a></li>
+                    <li><a href="admin.html#attendance">6. Attendance Logger (Admin Portal)</a></li>
+                    <li><a href="admin.html">7. Admin Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h4>Project Submission</h4>
+                <p><strong>Student Name:</strong> Siddharth Kumar</p>
+                <p><strong>Reg. No:</strong> 12612227</p>
+                <p><strong>Roll No:</strong> RK4P26YMB46</p>
+                <p><strong>Group Roll Nos:</strong> 46, 47, 62</p>
+                <p><strong>Serial No:</strong> 44 • <strong>Course:</strong> CSE326</p>
+            </div>
+
+            <div class="footer-box">
+                <h4>Contact & Head Office</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Slum Literacy Center #01, City Community Hall</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> coordinator@slumliteracy.org</p>
+                <p class="shift-time"><i class="fa-regular fa-clock"></i> Evening Shifts: 4:00 PM – 7:00 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container copyright-flex">
+                <p>© 2026 Slum Literacy Drive And Evening Volunteer Teaching Coordinator. All Rights Reserved.</p>
+                <p class="project-tag">
+                    <a href="admin.html" style="color: #fbbf24; text-decoration: underline;">
+                        <i class="fa-solid fa-lock"></i> Open Admin Portal (Live Candidate Data)
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
